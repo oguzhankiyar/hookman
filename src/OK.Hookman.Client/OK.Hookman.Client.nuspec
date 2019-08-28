@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>OK.Hookman.Client</id>
+    <version>1.0.0</version>
+    <title>OK.Hookman.Client</title>
+    <authors>Oğuzhan Kiyar</authors>
+    <owners>Oğuzhan Kiyar</owners>
+    <projectUrl>https://github.com/oguzhankiyar/OK.Hookman</projectUrl>
+    <repository type="git" url="https://github.com/oguzhankiyar/OK.Hookman" />
+    <description>Manage your webhooks easily.</description>
+    <copyright>Copyright © Oğuzhan Kiyar 2019</copyright>
+    <tags>dotnet, standard, core, webhooks, management, api, client</tags>
+
+    <dependencies>
+      <dependency id="OK.Hookman.Core" version="1.0.0" />
+      <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="2.2.0" />
+      <dependency id="Refit" version="4.6.107" />
+    </dependencies>
+  </metadata>
+</package>

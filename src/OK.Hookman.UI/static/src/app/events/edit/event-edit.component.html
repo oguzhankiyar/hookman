@@ -1,0 +1,128 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title pull-left">Edit Event</h4>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-wd btn-info btn-fill mx-2" (click)="cancel()">BACK TO LIST</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content">
+                    <form [formGroup]="eventForm" (ngSubmit)="save()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="sender">Sender <span>optional</span></label>
+                                    <select id="sender" class="form-control border-input" placeholder="Sender" formControlName="senderId">
+                                        <option *ngFor="let sender of senders" [ngValue]="sender.id">{{sender.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="receiver">Receiver <span>required</span></label>
+                                    <select id="receiver" class="form-control border-input" placeholder="Receiver" formControlName="receiverId">
+                                        <option *ngFor="let receiver of receivers" [ngValue]="receiver.id">{{receiver.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="action">Action <span>required</span></label>
+                                    <select id="action" class="form-control border-input" placeholder="Action" formControlName="actionId">
+                                        <option *ngFor="let action of actions" [ngValue]="action.id">{{action.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="method">Method <span>required</span></label>
+                                    <select id="method" class="form-control border-input" placeholder="Method" formControlName="method">
+                                        <option *ngFor="let method of methods" [ngValue]="method">{{method}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="path">Path <span>optional, bindable</span></label>
+                                    <input id="path" type="text" class="form-control border-input" placeholder="Path" formControlName="path">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" formArrayName="headerItems">
+                                    <label>Headers <span>optional, bindable</span></label>
+                                    <span class="label label-success pull-right" style="width: 65px; padding: 5px 0; cursor: pointer;" (click)="addHeader()">NEW</span>
+                                    <div class="row" *ngFor="let item of headerItems.controls; let headerIndex=index" [formGroupName]="headerIndex">
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control border-input" placeholder="Key" formControlName="key">
+                                        </div>                                        
+                                        <div class="col-xs-6">
+                                            <input type="text" class="form-control border-input" placeholder="Value" formControlName="value">
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <span class="label label-danger pull-right" style="width: 65px; padding: 5px 0; margin: 5px 0; cursor: pointer;" (click)="deleteHeader(headerIndex)">DELETE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" formArrayName="queryStringItems">
+                                    <label>Query Strings <span>optional, bindable</span></label>
+                                    <span class="label label-success pull-right" style="width: 65px; padding: 5px 0; cursor: pointer;" (click)="addQueryString()">NEW</span>
+                                    <div class="row" *ngFor="let item of queryStringItems.controls; let queryStringIndex=index" [formGroupName]="queryStringIndex">
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control border-input" placeholder="Key" formControlName="key">
+                                        </div>                                        
+                                        <div class="col-xs-6">
+                                            <input type="text" class="form-control border-input" placeholder="Value" formControlName="value">
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <span class="label label-danger pull-right" style="width: 65px; padding: 5px 0; margin: 5px 0; cursor: pointer;" (click)="deleteQueryString(queryStringIndex)">DELETE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="body">Body <span>optional, bindable</span></label>
+                                    <input id="body" type="text" class="form-control border-input" placeholder="Body" formControlName="body">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="retryCount">RetryCount <span>required</span></label>
+                                    <input id="retryCount" type="text" class="form-control border-input" placeholder="RetryCount" formControlName="retryCount">
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-sm btn-wd btn-success btn-fill mx-2" (click)="save()" [disabled]="!eventForm.valid">SAVE</button>
+                                <button type="button" class="btn btn-sm btn-wd btn-danger btn-fill mx-2" (click)="cancel()">CANCEL</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

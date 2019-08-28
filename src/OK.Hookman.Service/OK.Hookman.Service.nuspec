@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>OK.Hookman.Service</id>
+    <version>1.0.0</version>
+    <title>OK.Hookman.Service</title>
+    <authors>Oğuzhan Kiyar</authors>
+    <owners>Oğuzhan Kiyar</owners>
+    <projectUrl>https://github.com/oguzhankiyar/OK.Hookman</projectUrl>
+    <repository type="git" url="https://github.com/oguzhankiyar/OK.Hookman" />
+    <description>Manage your webhooks easily.</description>
+    <copyright>Copyright © Oğuzhan Kiyar 2019</copyright>
+    <tags>dotnet, standard, core, webhooks, management, service</tags>
+
+    <dependencies>
+      <dependency id="OK.Hookman.Core" version="1.0.0" />
+      <dependency id="OK.Hookman.Persistence.Core" version="1.0.0" />
+      <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="2.2.0" />
+      <dependency id="Microsoft.Extensions.Hosting" version="2.2.0" />
+      <dependency id="AutoMapper" version="8.1.0" />
+      <dependency id="AutoMapper.Extensions.Microsoft.DependencyInjection" version="6.0.0" />
+      <dependency id="FluentValidation" version="8.4.0" />
+      <dependency id="Newtonsoft.Json" version="12.0.1" />
+    </dependencies>
+  </metadata>
+</package>

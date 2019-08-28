@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>OK.Hookman.UI</id>
+    <version>1.0.0</version>
+    <title>OK.Hookman.UI</title>
+    <authors>Oğuzhan Kiyar</authors>
+    <owners>Oğuzhan Kiyar</owners>
+    <projectUrl>https://github.com/oguzhankiyar/OK.Hookman</projectUrl>
+    <repository type="git" url="https://github.com/oguzhankiyar/OK.Hookman" />
+    <description>Manage your webhooks easily.</description>
+    <copyright>Copyright © Oğuzhan Kiyar 2019</copyright>
+    <tags>dotnet, standard, core, webhooks, management, ui, dashboard</tags>
+    
+    <dependencies>
+      <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="2.2.0" />
+      <dependency id="Microsoft.AspNetCore.StaticFiles" version="2.2.0" />
+      <dependency id="Microsoft.Extensions.FileProviders.Physical" version="2.2.0" />
+    </dependencies>
+  </metadata>
+    <files>
+      <file src="static\out\**\*.*" target="lib\netstandard2.0\static\out\" /> 
+    </files>
+</package>

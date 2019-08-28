@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title pull-left">Delete Event</h4>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-wd btn-info btn-fill mx-2" (click)="cancel()">BACK TO LIST</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            Are you sure to delete the event that id <b>{{ event.id }}</b>?
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-sm btn-wd btn-success btn-fill mx-2" (click)="delete()">DELETE</button>
+                            <button type="button" class="btn btn-sm btn-wd btn-danger btn-fill mx-2" (click)="cancel()">CANCEL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

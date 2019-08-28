@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title pull-left">Create Receiver</h4>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-wd btn-info btn-fill mx-2" (click)="cancel()">BACK TO LIST</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content">
+                    <form [formGroup]="receiverForm" (ngSubmit)="save()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="name">Name <span>required</span></label>
+                                    <input id="name" type="text" class="form-control border-input" placeholder="Name" formControlName="name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="url">Url <span>required, bindable</span></label>
+                                    <input id="url" type="text" class="form-control border-input" placeholder="Url" formControlName="url">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="path">Path <span>optional, bindable</span></label>
+                                    <input id="path" type="text" class="form-control border-input" placeholder="Path" formControlName="path">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" formArrayName="headerItems">
+                                    <label>Headers <span>optional, bindable</span> </label>
+                                    <span class="label label-success pull-right" style="width: 65px; padding: 5px 0; cursor: pointer;" (click)="addHeader()">NEW</span>
+                                    <div class="row" *ngFor="let item of headerItems.controls; let headerIndex=index" [formGroupName]="headerIndex">
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control border-input" placeholder="Key" formControlName="key">
+                                        </div>                                        
+                                        <div class="col-xs-6">
+                                            <input type="text" class="form-control border-input" placeholder="Value" formControlName="value">
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <span class="label label-danger pull-right" style="width: 65px; padding: 5px 0; margin: 5px 0; cursor: pointer;" (click)="deleteHeader(headerIndex)">DELETE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" formArrayName="queryStringItems">
+                                    <label>Query Strings <span>optional, bindable</span></label>
+                                    <span class="label label-success pull-right" style="width: 65px; padding: 5px 0; cursor: pointer;" (click)="addQueryString()">NEW</span>
+                                    <div class="row" *ngFor="let item of queryStringItems.controls; let queryStringIndex=index" [formGroupName]="queryStringIndex">
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control border-input" placeholder="Key" formControlName="key">
+                                        </div>                                        
+                                        <div class="col-xs-6">
+                                            <input type="text" class="form-control border-input" placeholder="Value" formControlName="value">
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <span class="label label-danger pull-right" style="width: 65px; padding: 5px 0; margin: 5px 0; cursor: pointer;" (click)="deleteQueryString(queryStringIndex)">DELETE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-sm btn-wd btn-success btn-fill mx-2" (click)="save()" [disabled]="!receiverForm.valid">SAVE</button>
+                                <button type="button" class="btn btn-sm btn-wd btn-danger btn-fill mx-2" (click)="cancel()">CANCEL</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

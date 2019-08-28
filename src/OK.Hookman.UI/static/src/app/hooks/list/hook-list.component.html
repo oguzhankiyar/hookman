@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title pull-left">List of Hooks</h4>
+                    <button type="button" class="btn btn-sm btn-wd btn-success btn-fill pull-right" (click)="create()">CREATE</button>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-striped" *ngIf="isLoaded && items.length > 0">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let cell of headers">{{ cell }}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of items" (dblclick)="detail(row[0])">
+                                <td *ngFor="let cell of row">{{cell}}</td>
+                                <td style="text-align: right">
+                                    <div class="dropdown">
+                                        <a href="javascript:void()" class="ti-more-alt dropdown-toggle" data-toggle="dropdown"></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="javascript:void()" (click)="detail(row[0])">Detail</a></li>
+                                            <li><a href="javascript:void()" (click)="delete(row[0])">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="footer text-center">
+                    <span *ngIf="isLoaded && items.length === 0">There is no hook to show</span>
+                    <span *ngFor="let page of pages">
+                        <span *ngIf="page.isSeparator">...</span>
+                        <span *ngIf="!page.isSeparator">
+                            <button type="button" class="btn btn-default btn-sm btn-fill mx-2" [ngClass]="{'btn-success': page.isActive}" (click)="changePage(page.number)">{{ page.number }}</button>
+                        </span>
+                    </span>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>

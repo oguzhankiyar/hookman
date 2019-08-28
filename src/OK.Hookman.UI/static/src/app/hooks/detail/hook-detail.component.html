@@ -1,0 +1,97 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title pull-left">Hook Detail</h4>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-wd btn-info btn-fill mx-2" (click)="cancel()">BACK TO LIST</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td><strong>Id</strong></td>
+                                <td [innerText]="hook.id"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sender</strong></td>
+                                <td [innerText]="hook.sender.name"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Receiver</strong></td>
+                                <td [innerText]="hook.event.receiver.name"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Action</strong></td>
+                                <td [innerText]="hook.event.action.name"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data</strong></td>
+                                <td [innerText]="hook.data"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Request Url</strong></td>
+                                <td [innerText]="hook.requestUrl"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Request Headers</strong></td>
+                                <td>
+                                    <div *ngFor="let item of hook.requestHeaders | keyvalue" style="margin: 5px 0">
+                                        <strong [innerText]="item.key"></strong>
+                                        <div [innerText]="item.value"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Request Body</strong></td>
+                                <td [innerText]="hook.requestBody"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Response Code</strong></td>
+                                <td [innerText]="hook.responseCode"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Response Headers</strong></td>
+                                <td>
+                                    <div *ngFor="let item of hook.responseHeaders | keyvalue" style="margin: 5px 0">
+                                        <strong [innerText]="item.key"></strong>
+                                        <div [innerText]="item.value"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Response Body</strong></td>
+                                <td [innerText]="hook.responseBody"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Status</strong></td>
+                                <td [innerText]="hook.status.name"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Message</strong></td>
+                                <td [innerText]="hook.message"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Created Date</strong></td>
+                                <td [innerText]="hook.createdDate | date: 'dd.MM.yyyy HH:mm'"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Updated Date</strong></td>
+                                <td [innerText]="hook.updatedDate | date: 'dd.MM.yyyy HH:mm'"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-sm btn-wd btn-danger btn-fill mx-2" (click)="delete()">DELETE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

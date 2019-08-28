@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>OK.Hookman.API</id>
+    <version>1.0.0</version>
+    <title>OK.Hookman.API</title>
+    <authors>Oğuzhan Kiyar</authors>
+    <owners>Oğuzhan Kiyar</owners>
+    <projectUrl>https://github.com/oguzhankiyar/OK.Hookman</projectUrl>
+    <repository type="git" url="https://github.com/oguzhankiyar/OK.Hookman" />
+    <description>Manage your webhooks easily.</description>
+    <copyright>Copyright © Oğuzhan Kiyar 2019</copyright>
+    <tags>dotnet, standard, core, webhooks, management, api</tags>
+
+    <dependencies>
+      <dependency id="OK.Hookman.Service" version="1.0.0" />
+      <dependency id="Microsoft.AspNetCore.Mvc" version="2.2.0" />
+    </dependencies>
+  </metadata>
+</package>

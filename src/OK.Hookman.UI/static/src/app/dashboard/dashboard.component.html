@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" style="height: 500px;">
+                <div class="header">
+                    <h4 class="title pull-left">Top Actions</h4>
+                    <button type="button" class="pull-right btn btn-sm btn-wd btn-success btn-fill mx-2" (click)="reloadTopActionsChartData()">RELOAD</button>
+                </div>
+                <div class="content">
+                    <ngx-charts-line-chart
+                        [view]="topActionsChart.view"
+                        [scheme]="topActionsChart.colorScheme"
+                        [results]="topActionsChart.data"
+                        [xAxis]="topActionsChart.showXAxis"
+                        [yAxis]="topActionsChart.showYAxis"
+                        [legend]="topActionsChart.showLegend"
+                        [legendTitle]="topActionsChart.legendTitle"
+                        [showXAxisLabel]="topActionsChart.showXAxisLabel"
+                        [showYAxisLabel]="topActionsChart.showYAxisLabel"
+                        [xAxisLabel]="topActionsChart.xAxisLabel"
+                        [yAxisLabel]="topActionsChart.yAxisLabel"
+                        [autoScale]="topActionsChart.autoScale">
+                    </ngx-charts-line-chart>
+                </div>
+                <div class="clearfix"></div>
+                <div class="footer text-center" style="margin-top: 15px;">
+                    <button type="button" class="btn btn-sm btn-wd btn-primary mx-4" [ngClass]="{'btn-fill': topActionsChart.period == 'this_year'}" (click)="changeTopActionsChartPeriod('this_year')">THIS YEAR</button>
+                    <button type="button" class="btn btn-sm btn-wd btn-primary mx-4" [ngClass]="{'btn-fill': topActionsChart.period == 'this_month'}" (click)="changeTopActionsChartPeriod('this_month')">THIS MONTH</button>
+                    <button type="button" class="btn btn-sm btn-wd btn-primary mx-4" [ngClass]="{'btn-fill': topActionsChart.period == 'this_week'}" (click)="changeTopActionsChartPeriod('this_week')">THIS WEEK</button>
+                    <button type="button" class="btn btn-sm btn-wd btn-primary mx-4" [ngClass]="{'btn-fill': topActionsChart.period == 'yesterday'}" (click)="changeTopActionsChartPeriod('yesterday')">YESTERDAY</button>
+                    <button type="button" class="btn btn-sm btn-wd btn-primary mx-4" [ngClass]="{'btn-fill': topActionsChart.period == 'today'}" (click)="changeTopActionsChartPeriod('today')">TODAY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

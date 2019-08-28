@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title pull-left">Create Hook</h4>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-wd btn-info btn-fill mx-2" (click)="cancel()">BACK TO LIST</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content">
+                    <form [formGroup]="hookForm" (ngSubmit)="save()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-6">                                        
+                                            <input id="rdWithEvent" type="radio" name="CreationType" (change)="creationType = 1" [checked]="creationType === 1" style="margin-right: 5px;" />
+                                            <label for="rdWithEvent"><b>Create with Event</b><br />Sends one hook for specified event</label>
+                                        </div>
+                                        <div class="col-lg-6">                                        
+                                            <input id="rdWithAction" type="radio" name="CreationType" (change)="creationType = 2" [checked]="creationType === 2" style="margin-right: 5px;" />
+                                            <label for="rdWithAction"><b>Create with Action</b><br />Sends one or more hook for all events with specified action</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="creationType === 1">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="event">Event <span>required</span></label>
+                                    <select id="event" class="form-control border-input" placeholder="Event" formControlName="eventId">
+                                        <option *ngFor="let event of events" [ngValue]="event.id">From "{{event.sender ? event.sender.name : 'all'}}" To "{{event.receiver.name}}", Send "{{event.action.name}}" Event</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="creationType === 2">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="action">Action <span>required</span></label>
+                                    <select id="action" class="form-control border-input" placeholder="Action" formControlName="actionId">
+                                        <option *ngFor="let action of actions" [ngValue]="action.id">{{action.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="sender">Sender <span>required</span></label>
+                                    <select id="sender" class="form-control border-input" placeholder="Sender" formControlName="senderToken">
+                                        <option *ngFor="let sender of senders" [ngValue]="sender.token">{{sender.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="data">Data <span>optional, json</span></label>
+                                    <input id="data" type="text" class="form-control border-input" placeholder="Data" formControlName="data">
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-sm btn-wd btn-success btn-fill mx-2" (click)="save()" [disabled]="!hookForm.valid">SAVE</button>
+                                <button type="button" class="btn btn-sm btn-wd btn-danger btn-fill mx-2" (click)="cancel()">CANCEL</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

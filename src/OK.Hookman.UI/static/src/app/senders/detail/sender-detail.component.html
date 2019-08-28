@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title pull-left">Sender Detail</h4>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-wd btn-info btn-fill mx-2" (click)="cancel()">BACK TO LIST</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td><strong>Id</strong></td>
+                                <td [innerText]="sender.id"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Token</strong></td>
+                                <td [innerText]="sender.token"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Name</strong></td>
+                                <td [innerText]="sender.name"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Created Date</strong></td>
+                                <td [innerText]="sender.createdDate | date: 'dd.MM.yyyy HH:mm'"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Updated Date</strong></td>
+                                <td [innerText]="sender.updatedDate | date: 'dd.MM.yyyy HH:mm'"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-sm btn-wd btn-primary btn-fill mx-2" (click)="edit()">EDIT</button>
+                            <button type="button" class="btn btn-sm btn-wd btn-danger btn-fill mx-2" (click)="delete()">DELETE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
